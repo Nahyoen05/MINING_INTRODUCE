@@ -36,7 +36,7 @@ main{max-width:1000px;margin:0 auto;padding:24px 14px 60px}
 table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{border:2px solid #d8c9b0;padding:6px 8px;text-align:center;background:#faf4e8}th{background:#e8d9b8}
 .soonbox{border:3px dashed #b79ad0;background:#f3ecf8;border-radius:14px;padding:10px 14px;margin-top:10px}
-/* 의뢰소: 왼쪽 정렬 */
+/* 왼쪽 정렬 리스트 (의뢰소·보석 세공) */
 .qlist{display:grid;gap:10px;margin:12px 0}
 .qrow{display:flex;gap:14px;align-items:flex-start;text-align:left;background:#faf4e8;border:2px solid #d8c9b0;border-radius:14px;padding:12px 14px}
 .qrow .tag{flex:0 0 78px;text-align:center;font-size:13px;padding:3px 0;margin:2px 0 0}
@@ -63,7 +63,7 @@ footer{text-align:center;color:#fff8;padding:30px 10px 50px;font-size:13px}
   <div class="step"><b>보관함 확인</b><br>캔 광석과 재료는 <b>보관함(가방)</b>에 쌓여요.</div>
   <div class="step"><b>화로에서 제련</b><br>화로를 눌러 <b>제련할 광석</b>을 고르고 자동 제련을 켜 두세요. 구리·주석·철·금 광석이 주괴가 돼요.</div>
   <div class="step"><b>곡괭이 제작 &amp; 강화</b><br>주괴와 골드로 더 좋은 곡괭이를 만들고, 강화해서 채굴 속도와 랜덤 속성을 얻어요.</div>
-  <div class="step"><b>의뢰와 상점</b><br>세공한 장신구를 의뢰에 납품해 희귀한 보상을 얻고, 상점에서 필요한 아이템을 안정적으로 구매해요.</div>
+  <div class="step"><b>세공 &amp; 의뢰</b><br>보석으로 장신구를 만들어 의뢰에 납품하면 골드와 희귀한 보상을 얻어요. 상점에서는 필요한 아이템을 안정적으로 구매해요.</div>
 </div></div></section>
 
 <section class="sec" id="char"><h2><img data-i="플레이어/기본 여자/다이아">캐릭터</h2><div class="in two">
@@ -107,11 +107,25 @@ footer{text-align:center;color:#fff8;padding:30px 10px 50px;font-size:13px}
   </div>
 </div></section>
 
-<section class="sec" id="gem"><h2><img data-i="보석 세공/보석 세공하는 곳">보석 세공 <span class="tag soon">업데이트 예정</span></h2><div class="in two">
-  <img data-i="보석 세공/보석 세공하는 곳">
-  <div><p>채굴한 <b>광물과 보석</b>을 세공대에서 <b>목걸이 · 반지 · 팔찌</b> 같은 장신구로 만들 수 있어요.</p>
-  <p>만든 장신구는 <b>의뢰소에 납품</b>해서 보상을 받아요.</p>
-  <div class="soonbox note">※ 아직 구현되지 않았어요. 세부 규칙은 업데이트와 함께 공개돼요.</div></div>
+<section class="sec" id="gem"><h2><img data-i="보석 세공/보석 세공하는 곳">보석 세공 <span class="tag soon">업데이트 예정</span></h2><div class="in">
+  <div class="two">
+    <img data-i="보석 세공/보석 세공하는 곳">
+    <div><p>채굴한 보석을 세공대에서 다듬어 <b>장신구</b>로 만들 수 있어요.</p>
+    <p>보석 하나하나마다 <b>반지 · 팔찌 · 목걸이</b>를 만들 수 있어요. 예를 들어 다이아로는 다이아 반지, 다이아 팔찌, 다이아 목걸이를 만들 수 있어요.</p></div>
+  </div>
+  <h3>보석별 장신구</h3>
+  <div class="grid">
+    <div class="card"><img data-i="곡괭이 재료/다이아"><b>다이아</b>반지 · 팔찌 · 목걸이</div>
+    <div class="card"><img data-i="광질/루비"><b>루비</b>반지 · 팔찌 · 목걸이</div>
+    <div class="card"><img data-i="광질/애메랄드"><b>에메랄드</b>반지 · 팔찌 · 목걸이</div>
+    <div class="card"><img data-i="광질/자수정"><b>자수정</b>반지 · 팔찌 · 목걸이</div>
+  </div>
+  <h3>세공한 장신구는 이렇게 써요</h3>
+  <div class="qlist">
+    <div class="qrow"><span class="tag">단품 납품</span><p>만든 장신구를 <b>의뢰소에서 하나씩 납품</b>해 골드를 벌어요.</p></div>
+    <div class="qrow"><span class="tag r2">세트 납품</span><p>같은 보석의 반지·팔찌·목걸이를 <b>세트로 모아 납품</b>하면 단품보다 <b>돈을 더 많이 벌 수 있어요.</b></p></div>
+  </div>
+  <div class="soonbox note">※ 아직 구현되지 않았어요. 세부 규칙은 업데이트와 함께 공개돼요.</div>
 </div></section>
 
 <section class="sec" id="shop"><h2><img data-i="메뉴바/상점">상점 <span class="tag soon">업데이트 예정</span></h2><div class="in">
@@ -144,14 +158,21 @@ footer{text-align:center;color:#fff8;padding:30px 10px 50px;font-size:13px}
 </div></section>
 
 <section class="sec" id="quest"><h2><img data-i="메뉴바/의뢰소">의뢰소 <span class="tag soon">업데이트 예정</span></h2><div class="in">
-  <p>광물이나 보석 세공으로 만든 <b>목걸이 · 반지 · 팔찌</b> 등을 납품하고 보상을 얻는 곳이에요.</p>
-  <p>의뢰 등급이 높을수록 요구하는 재료의 수량과 가치가 늘어나고, 완료하면 <b>확률적으로 꾸미기 아이템이나 강화 스크롤</b> 등을 얻어요.</p>
+  <p>보석 세공으로 만든 <b>목걸이 · 반지 · 팔찌</b> 등을 납품하고 보상을 얻는 곳이에요.</p>
+  <p>의뢰 등급이 높을수록 요구하는 재료의 수량과 가치가 늘어나고, 완료하면 <b>골드와 함께 확률적으로 꾸미기 아이템이나 강화 스크롤</b> 등을 얻어요.</p>
+  <h3>의뢰 등급</h3>
   <div class="qlist">
     <div class="qrow"><span class="tag">일반 의뢰</span><p>일정 시간이 지나거나 <b>게임 머니</b>를 내면 새 의뢰로 갱신할 수 있어요.</p></div>
     <div class="qrow"><span class="tag r2">희귀 의뢰</span><p>갱신에 더 긴 대기 시간이나 높은 비용이 필요하지만, <b>고급 뽑기권 · 고급 강화 스크롤 · 희귀 꾸미기 아이템</b> 등을 얻을 수 있어요.</p></div>
     <div class="qrow"><span class="tag r3">특별 의뢰</span><p><b>매일 초기화</b>되고 비용으로 갱신할 수 없어요. <b>최고급 꾸미기 아이템이나 파괴 방지 스크롤</b> 같은 희귀한 보상을 노려 보세요.</p></div>
   </div>
-  <p class="note">상점에서는 필요한 아이템을 안정적으로 사고, 의뢰에서는 희귀한 아이템을 얻는 재미를 느껴 보세요.</p>
+  <h3>의뢰 예시</h3>
+  <div class="qlist">
+    <div class="qrow"><span class="tag">다이아</span><p><b>다이아 장신구 납품</b> : 다이아 팔찌 1개 + 다이아 반지 2개</p></div>
+    <div class="qrow"><span class="tag r3">루비</span><p><b>루비 장신구 납품</b> : 루비 목걸이 2개 + 루비 반지 1개</p></div>
+    <div class="qrow"><span class="tag r2">혼합</span><p><b>혼합 장신구 납품</b> : 다이아 팔찌 1개 + 에메랄드 반지 1개처럼 <b>서로 다른 보석</b>의 장신구를 섞어서 요구해요.</p></div>
+  </div>
+  <p class="note">의뢰 화면에서는 납품 목록과 완료 시 보상을 확인하고, 보유 중인 세공 아이템으로 바로 납품할 수 있어요. 다음 갱신까지 남은 시간이 표시되고, 골드로 새 의뢰로 갱신할 수도 있어요. 상점에서는 필요한 아이템을 안정적으로 사고, 의뢰에서는 희귀한 아이템을 얻는 재미를 느껴 보세요.</p>
 </div></section>
 </main>
 <footer>슬라임 광산 · 지금 바로 광산으로 출발하세요!</footer>

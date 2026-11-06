@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>슬라임 광산 - 게임 소개</title>
+<style>
+*{box-sizing:border-box;font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif}
+body{margin:0;background:linear-gradient(#3b3a52,#4b4a63 40%,#5c5a73);color:#4a3b32;line-height:1.6}
+img{image-rendering:pixelated;max-width:100%}
+.hero{position:relative;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:40px 16px;background:#3b3a52 center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(#1d1b2299,#1d1b2666 60%,#3b3a52)}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(36px,8vw,72px);margin:0;text-shadow:0 4px 0 #2e2530,0 0 24px #000a}
+.hero p{font-size:clamp(15px,2.6vw,24px);margin:12px 0 0;text-shadow:0 2px 6px #000}
+.btn{display:inline-block;background:#8fcf8f;border:3px solid #5fae5f;border-radius:14px;padding:12px 28px;font-weight:bold;font-size:18px;color:#2d4a2d;text-decoration:none;margin:4px;box-shadow:0 4px 0 #3f7d3f}
+nav{position:sticky;top:0;z-index:5;background:#2e2530ee;display:flex;gap:4px;flex-wrap:wrap;justify-content:center;padding:8px}
+nav a{color:#efe2cc;text-decoration:none;font-size:14px;padding:4px 12px;border-radius:14px}
+nav a:hover{background:#ffffff22}
+main{max-width:1000px;margin:0 auto;padding:24px 14px 60px}
+.sec{background:#efe2cc;border:4px solid #2e2530;border-radius:20px;margin:26px 0;box-shadow:0 8px 24px #0006;overflow:hidden}
+.sec>h2{margin:0;padding:10px 20px;background:#f6efe3;border-bottom:3px solid #cbb89c;font-size:clamp(20px,3.4vw,28px);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sec>h2 img{width:42px}
+.in{padding:16px 18px}.in h3{margin:18px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.card{background:#faf4e8;border:2px solid #d8c9b0;border-radius:14px;padding:10px;text-align:center;font-size:13px}
+.card img{width:64px;height:64px;object-fit:contain}
+.card img.big{width:120px;height:120px}
+.card .em{font-size:52px;line-height:64px;height:64px}
+.card b{display:block;font-size:15px}
+.tag{display:inline-block;background:#8fd0d8;border-radius:10px;padding:0 8px;font-size:11px;font-weight:bold;margin-top:4px}
+.tag.soon{background:#e0b8e8}.tag.r2{background:#f5d98a}.tag.r3{background:#f0a8a8}
+.steps{counter-reset:s;display:grid;gap:10px}
+.step{counter-increment:s;background:#faf4e8;border:2px solid #d8c9b0;border-radius:14px;padding:10px 14px 10px 58px;position:relative}
+.step:before{content:counter(s);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#8fcf8f;border:3px solid #5fae5f;font-weight:bold;display:flex;align-items:center;justify-content:center;color:#2d4a2d}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.two>img{width:100%;max-width:260px;margin:auto;display:block}
+.note{font-size:13px;color:#7a6a5a}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{border:2px solid #d8c9b0;padding:6px 8px;text-align:center;background:#faf4e8}th{background:#e8d9b8}
+.soonbox{border:3px dashed #b79ad0;background:#f3ecf8;border-radius:14px;padding:10px 14px;margin-top:10px}
+/* 의뢰소: 왼쪽 정렬 */
+.qlist{display:grid;gap:10px;margin:12px 0}
+.qrow{display:flex;gap:14px;align-items:flex-start;text-align:left;background:#faf4e8;border:2px solid #d8c9b0;border-radius:14px;padding:12px 14px}
+.qrow .tag{flex:0 0 78px;text-align:center;font-size:13px;padding:3px 0;margin:2px 0 0}
+.qrow p{margin:0;font-size:15px;line-height:1.7}
+@media(max-width:560px){.qrow{flex-direction:column;gap:6px}.qrow .tag{flex:none;padding:3px 12px}}
+footer{text-align:center;color:#fff8;padding:30px 10px 50px;font-size:13px}
+</style></head><body>
+
+<header class="hero" id="top">
+  <h1>⛏ 슬라임 광산</h1>
+  <p>광석을 캐고, 제련하고, 곡괭이를 키우는 방치형 채굴 게임</p>
+</header>
+
+<nav><a href="#intro">게임 소개</a><a href="#play">플레이 방법</a><a href="#char">캐릭터</a><a href="#ore">광석 도감</a><a href="#pick">곡괭이·강화</a><a href="#furnace">화로·슬라임</a><a href="#gem">보석 세공</a><a href="#shop">상점</a><a href="#gacha">뽑기</a><a href="#quest">의뢰소</a></nav>
+
+<main>
+<section class="sec" id="intro"><h2><img data-i="메뉴바/가방">게임 소개</h2><div class="in">
+  <p>동굴 속 광산에서 <b>자동으로 광석이 채굴</b>되는 방치형 게임이에요. 가만히 둬도 광석이 쌓이고, 광석을 직접 클릭하면 더 빨리 캘 수 있어요.</p>
+  <p>캔 광석은 화로에서 주괴로 제련하고, 주괴로 더 좋은 곡괭이를 만들어 더 깊은 곳의 광석에 도전해 보세요. 슬라임을 부화시켜 화로에 넣으면 제련도 더 빨라져요!</p>
+</div></section>
+
+<section class="sec" id="play"><h2><img data-i="메뉴바/곡괭이 제작강화">플레이 방법</h2><div class="in"><div class="steps">
+  <div class="step"><b>광석 채굴</b><br>장착한 곡괭이로 광석이 자동으로 채굴돼요. 광석 더미를 클릭하면 채굴 게이지가 더 빨리 차요.</div>
+  <div class="step"><b>보관함 확인</b><br>캔 광석과 재료는 <b>보관함(가방)</b>에 쌓여요.</div>
+  <div class="step"><b>화로에서 제련</b><br>화로를 눌러 <b>제련할 광석</b>을 고르고 자동 제련을 켜 두세요. 구리·주석·철·금 광석이 주괴가 돼요.</div>
+  <div class="step"><b>곡괭이 제작 &amp; 강화</b><br>주괴와 골드로 더 좋은 곡괭이를 만들고, 강화해서 채굴 속도와 랜덤 속성을 얻어요.</div>
+  <div class="step"><b>의뢰와 상점</b><br>세공한 장신구를 의뢰에 납품해 희귀한 보상을 얻고, 상점에서 필요한 아이템을 안정적으로 구매해요.</div>
+</div></div></section>
+
+<section class="sec" id="char"><h2><img data-i="플레이어/기본 여자/다이아">캐릭터</h2><div class="in two">
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    <div class="card"><img class="big" data-i="플레이어/기본 여자/다이아"><b>여자 캐릭터</b></div>
+    <div class="card"><img class="big" data-i="플레이어/기본 남자/다이아"><b>남자 캐릭터</b></div>
+  </div>
+  <div><p><b>여자 · 남자</b> 두 캐릭터 중 원하는 모습으로 플레이할 수 있어요. 캐릭터를 누르면 언제든 바꿀 수 있어요.</p>
+  <p>캐릭터는 <b>들고 있는 곡괭이에 따라 모습이 달라져요.</b> 나무·돌·철·금·다이아 곡괭이마다 다른 모습이에요. (사진은 다이아 곡괭이를 든 모습)</p>
+  <p>꾸미기 뽑기권으로 얻은 아이템으로 <b>캐릭터와 슬라임을 꾸밀 수 있어요.</b></p></div>
+</div></section>
+
+<section class="sec" id="ore"><h2><img data-i="곡괭이 재료/다이아">광석 도감</h2><div class="in">
+  <p class="note">곡괭이 단계가 높을수록 더 귀한 광석이 나와요. 판매가는 임시 판매 기준이에요.</p>
+  <div class="grid" id="oreGrid"></div>
+  <h3>제련 주괴</h3><div class="grid" id="ingotGrid"></div>
+</div></section>
+
+<section class="sec" id="pick"><h2><img data-i="곡괭이/다이아 곡괭이">곡괭이 제작 &amp; 강화</h2><div class="in">
+  <div class="grid" id="pickGrid"></div>
+  <h3>강화 시스템</h3>
+  <table><tr><th>항목</th><th>내용</th></tr>
+  <tr><td>강화 단계</td><td>+10까지 강화할 수 있어요. 단계가 높을수록 채굴이 더 빨라져요.</td></tr>
+  <tr><td>성공 확률</td><td>단계가 오를수록 낮아져요. (행운 속성으로 보완 가능)</td></tr>
+  <tr><td>파괴 확률</td><td>+3부터 실패 시 곡괭이가 파괴될 수 있어요. (내구도 속성으로 감소)</td></tr>
+  <tr><td>랜덤 속성</td><td>강화에 성공하면 <b>채굴 속도 · 행운 · 광물 드롭 확률 · 내구도</b> 중 하나가 랜덤으로 올라요.</td></tr></table>
+  <h3>강화 스크롤 6종</h3>
+  <div class="grid" id="scrollGrid"></div>
+  <p class="note">스크롤은 선택 사항이에요. 사용하지 않아도 강화할 수 있어요.</p>
+</div></section>
+
+<section class="sec" id="furnace"><h2><img data-i="화로/일반_on">화로 &amp; 슬라임</h2><div class="in">
+  <p>처음에는 슬라임 없는 <b>일반 화로</b>로 시작해요. <b>슬라임 부화기</b>에서 알을 부화시켜(🪙30, 15초, 무작위 슬라임) 화로에 넣으면 화로가 강해져요.</p>
+  <div class="grid">
+    <div class="card"><img data-i="화로/일반_on"><b>일반 화로</b>기본 제련</div>
+    <div class="card"><img data-i="화로/풀_on"><b>풀 슬라임</b>25% 확률로 주괴 +1</div>
+    <div class="card"><img data-i="화로/불_on"><b>불 슬라임</b>제련 속도 ×2</div>
+    <div class="card"><img data-i="화로/물_on"><b>물 슬라임</b>제련 속도 ×1.5</div>
+    <div class="card"><img data-i="화로/바람_on"><b>바람 슬라임</b>속도 ×1.3 + 10% 주괴 +1</div>
+    <div class="card"><img data-i="슬라임 부화기/부화기 (알 있음)"><b>슬라임 부화기</b>자동 부화 가능</div>
+  </div>
+</div></section>
+
+<section class="sec" id="gem"><h2><img data-i="보석 세공/보석 세공하는 곳">보석 세공 <span class="tag soon">업데이트 예정</span></h2><div class="in two">
+  <img data-i="보석 세공/보석 세공하는 곳">
+  <div><p>채굴한 <b>광물과 보석</b>을 세공대에서 <b>목걸이 · 반지 · 팔찌</b> 같은 장신구로 만들 수 있어요.</p>
+  <p>만든 장신구는 <b>의뢰소에 납품</b>해서 보상을 받아요.</p>
+  <div class="soonbox note">※ 아직 구현되지 않았어요. 세부 규칙은 업데이트와 함께 공개돼요.</div></div>
+</div></section>
+
+<section class="sec" id="shop"><h2><img data-i="메뉴바/상점">상점 <span class="tag soon">업데이트 예정</span></h2><div class="in">
+  <p>필요한 아이템을 <b>안정적으로 구매</b>할 수 있는 곳이에요.</p>
+  <div class="grid">
+    <div class="card"><img data-i="스크롤/강화 스크롤"><b>기본 강화 스크롤</b><span class="tag">상시 판매</span></div>
+    <div class="card"><div class="em">📦</div><b>일반 뽑기권</b><span class="tag">상시 판매</span></div>
+    <div class="card"><div class="em">🎁</div><b>고급 뽑기권</b><span class="tag r2">상시 판매</span></div>
+    <div class="card"><div class="em">🧰</div><b>희귀 뽑기권</b><span class="tag r3">일일 구매 제한</span></div>
+  </div>
+  <p class="note">희귀 뽑기권은 게임 밸런스를 위해 하루에 살 수 있는 수량이 정해져 있어요.</p>
+</div></section>
+
+<section class="sec" id="gacha"><h2><span style="font-size:34px">🎁</span>뽑기 <span class="tag soon">업데이트 예정</span></h2><div class="in">
+  <p>뽑기권은 <b>스크롤 뽑기권</b>과 <b>꾸미기 뽑기권</b> 두 종류이고, 각각 <b>일반 · 고급 · 희귀</b> 등급이 있어요. 등급이 올라갈수록 희귀한 아이템이 나올 확률이 높아져요.</p>
+  <h3>스크롤 뽑기권</h3>
+  <div class="grid">
+    <div class="card"><div class="em">📦</div><b>일반 스크롤 뽑기권</b>기본적인 스크롤 위주<br><span class="tag">일반</span></div>
+    <div class="card"><div class="em">🎁</div><b>고급 스크롤 뽑기권</b>더 좋은 스크롤 확률 ↑<br><span class="tag r2">고급</span></div>
+    <div class="card"><div class="em">🧰</div><b>희귀 스크롤 뽑기권</b>희귀 스크롤 확률 ↑<br><span class="tag r3">희귀</span></div>
+  </div>
+  <p>뽑기에서는 강화 확률을 올려 주는 스크롤, 곡괭이에 <b>랜덤으로 붙은 속성을 새로고침</b>하는 스크롤 등이 나와요. <b>파괴 방지 스크롤</b>은 낮은 확률로만 뽑혀요.</p>
+  <h3>꾸미기 뽑기권</h3>
+  <div class="grid">
+    <div class="card"><div class="em">📦</div><b>일반 꾸미기 뽑기권</b><span class="tag">일반</span></div>
+    <div class="card"><div class="em">🎁</div><b>고급 꾸미기 뽑기권</b><span class="tag r2">고급</span></div>
+    <div class="card"><div class="em">🧰</div><b>희귀 꾸미기 뽑기권</b><span class="tag r3">희귀</span></div>
+  </div>
+  <p><b>캐릭터와 슬라임을 꾸밀 수 있는</b> 꾸미기 아이템을 뽑아요. 등급이 높을수록 희귀한 꾸미기가 나올 확률이 올라가요.</p>
+</div></section>
+
+<section class="sec" id="quest"><h2><img data-i="메뉴바/의뢰소">의뢰소 <span class="tag soon">업데이트 예정</span></h2><div class="in">
+  <p>광물이나 보석 세공으로 만든 <b>목걸이 · 반지 · 팔찌</b> 등을 납품하고 보상을 얻는 곳이에요.</p>
+  <p>의뢰 등급이 높을수록 요구하는 재료의 수량과 가치가 늘어나고, 완료하면 <b>확률적으로 꾸미기 아이템이나 강화 스크롤</b> 등을 얻어요.</p>
+  <div class="qlist">
+    <div class="qrow"><span class="tag">일반 의뢰</span><p>일정 시간이 지나거나 <b>게임 머니</b>를 내면 새 의뢰로 갱신할 수 있어요.</p></div>
+    <div class="qrow"><span class="tag r2">희귀 의뢰</span><p>갱신에 더 긴 대기 시간이나 높은 비용이 필요하지만, <b>고급 뽑기권 · 고급 강화 스크롤 · 희귀 꾸미기 아이템</b> 등을 얻을 수 있어요.</p></div>
+    <div class="qrow"><span class="tag r3">특별 의뢰</span><p><b>매일 초기화</b>되고 비용으로 갱신할 수 없어요. <b>최고급 꾸미기 아이템이나 파괴 방지 스크롤</b> 같은 희귀한 보상을 노려 보세요.</p></div>
+  </div>
+  <p class="note">상점에서는 필요한 아이템을 안정적으로 사고, 의뢰에서는 희귀한 아이템을 얻는 재미를 느껴 보세요.</p>
+</div></section>
+</main>
+<footer>슬라임 광산 · 지금 바로 광산으로 출발하세요!<br><a class="btn" href="index.html">▶ 게임 시작</a></footer>
+
+<script>
+const IMG='images/', src=p=>IMG+encodeURI(p)+'.png';
+const TN=['나무','돌','철','금','다이아'];
+/* [이름, 이미지, 채굴 가능 곡괭이 단계, 판매가] */
+const ORES=[['나무','곡괭이 재료/나무',0,3],['돌','곡괭이 재료/돌',0,2],['석탄','광질/석탄',0,5],['구리 광석','광질/구리 광석',1,12],['주석 광석','광질/주석 광석',1,12],['철 광석','광질/철 광석',1,18],['금 광석','광질/금 광석',2,30],['자수정','광질/자수정',2,60],['루비','광질/루비',3,90],['에메랄드','광질/애메랄드',3,90],['다이아','곡괭이 재료/다이아',3,200]];
+const ING=[['구리 광석','구리 주괴','광질/구리 주괴',35],['주석 광석','주석 주괴','광질/주석 주괴',35],['철 광석','철 주괴','곡괭이 재료/철',55],['금 광석','금 주괴','곡괭이 재료/금',100]];
+const REC=['🪙100만 있으면 제작','돌 ×10, 나무 ×3, 🪙200','철 주괴 ×5, 나무 ×3, 🪙500','금 주괴 ×5, 철 주괴 ×2, 🪙1,000','다이아 ×5, 금 주괴 ×3, 🪙3,000'];
+const SCR=[['강화 스크롤','강화 성공 확률을 높여요'],['고급 강화 스크롤','더 크게 확률을 높여요'],['복구 스크롤','파괴된 아이템을 복구해요'],['축복 스크롤','강화 성공 확률 관련 축복 효과'],['파괴 방지 스크롤','실패해도 파괴를 막아요'],['확정 강화 스크롤','강화 단계를 확정으로 올려요']];
+const set=(id,h)=>document.getElementById(id).innerHTML=h;
+set('oreGrid',ORES.map(o=>`<div class="card"><img src="${src(o[1])}"><b>${o[0]}</b>🪙${o[3]}<br><span class="tag">${TN[o[2]]} 곡괭이~</span></div>`).join(''));
+set('ingotGrid',ING.map(o=>`<div class="card"><img src="${src(o[2])}"><b>${o[1]}</b>${o[0]} → 주괴<br>🪙${o[3]}</div>`).join(''));
+set('pickGrid',TN.map((n,i)=>`<div class="card"><img src="${src('곡괭이/'+n+' 곡괭이')}"><b>${n} 곡괭이</b>채굴 속도 ×${(1+.4*i).toFixed(1)}<br><span class="note">${REC[i]}</span></div>`).join(''));
+set('scrollGrid',SCR.map(s=>`<div class="card"><img src="${src('스크롤/'+s[0])}"><b>${s[0]}</b>${s[1]}</div>`).join(''));
+document.querySelectorAll('[data-i]').forEach(e=>e.src=src(e.dataset.i));
+document.querySelector('.hero').style.backgroundImage=`url("${src('배경/배경')}")`;
+</script></body></html>
